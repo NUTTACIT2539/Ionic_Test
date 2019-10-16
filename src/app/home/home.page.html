@@ -1,14 +1,164 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="medium">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-title> | {{ timeSt }} </ion-title>
   </ion-toolbar>
 </ion-header>
+<!-- --------------------------------------  status------------------------------------------------------- -->
 
-<ion-content>
-   HELLO IONIC
+<ion-content padding>
+  <div class="row">
+    <div class="col">
+      <h6>connection : {{ sta ? "Open" : "Close" }}</h6>
+    </div>
+    <div class="col text-right">
+      <ion-toggle
+        color="primary"
+        [(ngModel)]="sta"
+        (ionChange)="swit()"
+      ></ion-toggle>
+    </div>
+  </div>
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-item>
+        <ion-label>{{setDate}}</ion-label>
+        <ion-datetime style="width:0px;height:0px;padding:0px;"
+        pickerFormat="MM/DD/YYYY"
+        #setDate
+        displayFormat=" "></ion-datetime>
+      </ion-item>
+      <ion-col>
+        <ion-button size="small" (click)="getDate(setDate.value)">Set</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-item>
+        <ion-label>{{ setTimeStart2 }}</ion-label>
+        <ion-datetime
+          style="width:0px;height:0px;padding:0px;"
+          pickerFormat="HH:mm"
+          #setTimeStart2_1
+          displayFormat=" "
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-col>
+        <ion-button size="small" (click)="getTimeStart2(setTimeStart2_1.value)"
+          >Set</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <h6>อ่านค่าความชื้นดิน</h6>
+    <ion-row>
+      <ion-col class="bordergit">
+        เซนเซอร์
+      </ion-col>
+      <ion-col class="bordergit">
+        ค่าที่อ่านได้
+      </ion-col>
+      <ion-col class="bordergit">
+        ปุ่มเซ็ตค่า
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="bordergit">
+        1
+      </ion-col>
+      <ion-col class="bordergit">
+        xxx
+      </ion-col>
+      <ion-col class="bordergit">
+        <ion-button size="small">Read</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="bordergit">
+        2
+      </ion-col>
+      <ion-col class="bordergit">
+        xxxx
+      </ion-col>
+      <ion-col class="bordergit">
+        <ion-button size="small">Read</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <h6>ควบคุมการทำงานของปั้ม</h6>
+    <ion-row class="bordergit">
+      <ion-col class="bordergit">
+        ปั๊ม
+      </ion-col>
+      <ion-col class="bordergit">
+        สถานะ
+      </ion-col>
+      <ion-col class="bordergit">
+        ปุ่มเซ็ตค่า
+      </ion-col>
+  
+    </ion-row>
+
+    <ion-row class="bordergit">
+      <ion-col class="bordergit">
+        <div class="form-group">
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+        </div>
+
+
+      </ion-col>
+      <ion-col class="bordergit">
+        <ion-toggle color="primary"></ion-toggle>
+      </ion-col>
+
+
+      <ion-col class="bordergit">
+          <ion-button color="success" (click)="presentAlert()">Success</ion-button>
+      </ion-col>
+   
+    </ion-row>
+  </ion-grid>
+
+  <!-- 
+<div>
+<div class="col text-center mb-2" >
+    <ngx-gauge [type]="'arch'" 
+           [value]="tem" 
+           [label]="'PH'"  
+           [append]="' '"> 
+    </ngx-gauge>
+</div>
+
+<div class="col text-center mb-2" >
+    <ngx-gauge [type]="'arch'" 
+    [value]="humi" 
+    [label]="'ความชื้น'"  
+    [append]="' % '"> 
+    </ngx-gauge>
+ </div> 
+</div> -->
+
+  <!-- <ion-item lines="full">
+    <ion-label>ตั้งเวลา 1</ion-label>
+    <ion-datetime displayFormat="HH:mm"
+    (ionChange)="getTime(timeSelect.value)"
+     #timeSelect></ion-datetime>
+  </ion-item> -->
 </ion-content>
